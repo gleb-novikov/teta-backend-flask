@@ -55,6 +55,11 @@ class Metric(db.Model):
 db.create_all()
 
 
+@app.route('/')
+def home():
+    return Response('[territory of 2 engers]', status=200)
+
+
 @app.route('/auth/registration', methods=['POST'])
 def registration():
     value = request.json
