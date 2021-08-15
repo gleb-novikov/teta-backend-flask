@@ -92,7 +92,7 @@ def login():
     value = request.json
     user = User.query.filter_by(email=value['email']).first()
     if check_password_hash(user.password, value['password']):
-        response = json.dumps({'token': user.token})
+        response = json.dumps({'token': user.token, 'is_parent': user.is_parent})
         return Response(response, status=200, mimetype='application/json')
     else:
         return Response(status=400)
